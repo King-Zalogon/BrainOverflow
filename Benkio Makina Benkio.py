@@ -11,6 +11,7 @@ regression_model = LinearRegression()
 regression_model.fit(X_train, y_train)
 
 # Hacemos una predicción utilizando el modelo entrenado
+
 X_test = [[7]]
 predicted_value = regression_model.predict(X_test)
 
