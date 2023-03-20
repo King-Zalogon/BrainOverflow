@@ -41,12 +41,16 @@
 # s = "1234"
 # print(list(s))
 
-def func(x):
-    x[0] = 'def'
-    x[1] = 'abc'
-    return id(x)
+# def func(x):
+#     x[0] = 'def'
+#     x[1] = 'abc'
+#     return id(x)
+#
+#
+# q = ['abc', 'def']
+# print(id(q) == func(q))
 
+a_set = set()
 
-q = ['abc', 'def']
-print(id(q) == func(q))
-
+print(a_set)
+print(type(a_set))
