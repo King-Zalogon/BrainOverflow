@@ -33,7 +33,20 @@
 # def test_multiplication_with_fixtures(multiplication):
 #     assert multiplication == 25
 
-nums = [10, 20, 30]
-temp = nums
-nums.append(temp)
-print(nums)
+# nums = [10, 20, 30]
+# temp = nums
+# nums.append(temp)
+# print(nums)
+
+# s = "1234"
+# print(list(s))
+
+def func(x):
+    x[0] = 'def'
+    x[1] = 'abc'
+    return id(x)
+
+
+q = ['abc', 'def']
+print(id(q) == func(q))
+
