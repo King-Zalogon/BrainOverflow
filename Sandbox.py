@@ -56,9 +56,22 @@
 # print(type(a_set))
 
 
-list1= {22, 35, 51}
-list1.add((5,1))
-list2 = {4,51,5,1}
-list2.intersection_update(list1)
-print(list2)
+# list1= {22, 35, 51}
+# list1.add((5,1))
+# list2 = {4,51,5,1}
+# list2.intersection_update(list1)
+# print(list2)
+
+# fruits = ['apple', 'banana', 'cherry']
+# print(len(fruits))
+
+# def multiplier(y):
+#     return lambda x: x * y
+# f = multiplier(2)
+# print(f(False))
+# print(f(True))
+# print(f(3))
+
+st = 'wxy'
+print('z'.join(st))
 
