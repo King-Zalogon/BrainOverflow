@@ -72,6 +72,22 @@
 # print(f(True))
 # print(f(3))
 
-st = 'wxy'
-print('z'.join(st))
+# st = 'wxy'
+# print('z'.join(st))
+
+# x = [10, 20, 30]
+# print(x.append(40))
+
+# a = "aaa" > "b"
+# b = isinstance(int, type)
+# c = bool(0)
+# d = bool([])
+#
+# result = f"{str(a)},{str(b)},{str(c)},{str(d)}"
+#
+# print(result)
+
+
+LIST=[1, 2, 3, 4]
+print(list(map(lambda x:x*2, LIST)))
 
