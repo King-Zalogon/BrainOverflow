@@ -88,6 +88,26 @@
 # print(result)
 
 
-LIST=[1, 2, 3, 4]
-print(list(map(lambda x:x*2, LIST)))
+# LIST=[1, 2, 3, 4]
+# print(list(map(lambda x:x*2, LIST)))
+
+# list1=[12,47,87,41]
+# list2=["1","2","3","4"]
+#
+# data ={key:value for key,value in zip(list1,list2) if 12<int(key)<50}
+#
+# print(sum(data.keys()))
+
+
+# for i in range(10):
+#
+#     if i == 5:
+#         break
+#     else:
+#         print(i)
+# else:
+#     print("Here")
+
+x = [1, 2, 3, 4]
+print(x.pop(3))
 
