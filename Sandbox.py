@@ -108,6 +108,15 @@
 # else:
 #     print("Here")
 
-x = [1, 2, 3, 4]
-print(x.pop(3))
+# x = [1, 2, 3, 4]
+# print(x.pop(3))
+
+
+# n = 3
+# for i in range(1, n+1):
+#     print((10**i // 9) * i)
+
+x = "x"
+
+print(ord(x))
 
