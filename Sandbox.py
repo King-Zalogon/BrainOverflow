@@ -116,7 +116,11 @@
 # for i in range(1, n+1):
 #     print((10**i // 9) * i)
 
-x = "x"
+# x = "x"
+#
+# print(ord(x))
 
-print(ord(x))
+numbers = [str((x+1)*2) for x in range(0,10,2) if x > 5]
+
+print("".join(numbers))
 
