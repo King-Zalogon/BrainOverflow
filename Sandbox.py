@@ -120,7 +120,27 @@
 #
 # print(ord(x))
 
-numbers = [str((x+1)*2) for x in range(0,10,2) if x > 5]
+# numbers = [str((x+1)*2) for x in range(0,10,2) if x > 5]
+#
+# print("".join(numbers))
 
-print("".join(numbers))
+# list = [1,1,2,3,5,8,13]
+# print(list[list[4]])
 
+# for i in range(10):
+#     if not i % 2 == 0:
+#         print(i+1)
+
+# list = [1,2,3]
+# for var in list:
+#     print(var)
+
+# x = [6, 4, 2, 9]
+# x = x[::-1]
+# print(x[0]+x[2])
+
+N = int(input())
+total = 0
+for i in range(1,N+1):
+    total += i
+print(total)
