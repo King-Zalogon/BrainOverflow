@@ -139,8 +139,17 @@
 # x = x[::-1]
 # print(x[0]+x[2])
 
-N = int(input())
-total = 0
-for i in range(1,N+1):
-    total += i
-print(total)
+# N = int(input())
+# total = 0
+# for i in range(1,N+1):
+#     total += i
+# print(total)
+
+# def f(*args):
+#     return sum(args)
+# print(f(1, 2, 3, 4, 5))
+
+
+tpl = (1,2,3,4,5)
+print(tpl.count(3) + tpl.index(3))
+
