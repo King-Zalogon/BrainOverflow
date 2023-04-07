@@ -150,6 +150,23 @@
 # print(f(1, 2, 3, 4, 5))
 
 
+# tpl = (1,2,3,4,5)
+# print(tpl.count(3) + tpl.index(3))
+
+# import numpy as np
+# print(np.arange(2,8))
+
+# li = [10, 15, 20, 25]
+# li[1:3] = [30]
+# print(li)
+
+# list1 = [1, 3, 5]
+# set1 = {5, 1, 6, 8}
+#
+# set1 |= set(list1)
+# print(set1)
+
 tpl = (1,2,3,4,5)
-print(tpl.count(3) + tpl.index(3))
+print(tpl.index(3, 2, 4))
+
 
