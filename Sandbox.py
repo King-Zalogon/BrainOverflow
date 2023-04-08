@@ -166,7 +166,9 @@
 # set1 |= set(list1)
 # print(set1)
 
-tpl = (1,2,3,4,5)
-print(tpl.index(3, 2, 4))
+# tpl = (1,2,3,4,5)
+# print(tpl.index(3, 2, 4))
 
+lst = [1, 2, 3, 4, 5, 2, 3, 4, 5]
+print(len(set(lst)))
 
