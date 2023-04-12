@@ -169,6 +169,9 @@
 # tpl = (1,2,3,4,5)
 # print(tpl.index(3, 2, 4))
 
-lst = [1, 2, 3, 4, 5, 2, 3, 4, 5]
-print(len(set(lst)))
+# lst = [1, 2, 3, 4, 5, 2, 3, 4, 5]
+# print(len(set(lst)))
+
+import math
+print(math.fsum([.1 for i in range(20)]))
 
