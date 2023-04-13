@@ -172,6 +172,10 @@
 # lst = [1, 2, 3, 4, 5, 2, 3, 4, 5]
 # print(len(set(lst)))
 
-import math
-print(math.fsum([.1 for i in range(20)]))
+# import math
+# print(math.fsum([.1 for i in range(20)]))
+
+li = [10, 20, 30, 20]
+li.remove(20)
+print(li)
 
