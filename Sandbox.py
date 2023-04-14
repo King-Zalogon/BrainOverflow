@@ -179,7 +179,35 @@
 # li.remove(20)
 # print(li)
 
-st = {'A', 'B', 'C'}
-st.clear( )
-print(st)
+# st = {'A', 'B', 'C'}
+# st.clear( )
+# print(st)
+
+# print ("py" * 2 * 3)
+
+
+import timeit
+
+
+def is_palindrome_jr(string):
+    new_string = ""
+    for i in range(len(string)):
+        if string[i] != " ":
+            new_string += string[i]
+    string = new_string
+    for i in range(len(string)):
+        if string[i].lower() != string[len(string)-i-1].lower():
+            return False
+    return True
+
+
+print(is_palindrome_jr('ABC d cb a' * 1000))
+
+
+def is_palindrome_sr(string):
+    string = string.replace(" ", "").lower()
+    return string == string[::-1]
+
+
+print(is_palindrome_sr('ABC d cb a' * 1000))
 
