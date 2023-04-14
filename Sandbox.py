@@ -175,7 +175,11 @@
 # import math
 # print(math.fsum([.1 for i in range(20)]))
 
-li = [10, 20, 30, 20]
-li.remove(20)
-print(li)
+# li = [10, 20, 30, 20]
+# li.remove(20)
+# print(li)
+
+st = {'A', 'B', 'C'}
+st.clear( )
+print(st)
 
