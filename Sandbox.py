@@ -207,8 +207,8 @@ import timeit
 # def is_palindrome_semisr(string):
 #     string = string.replace(" ", "").lower()
 #     return string == string[::-1]
-#
-#
+
+
 # print(is_palindrome_semisr('ABC d cb a' * 1000))
 
 
@@ -241,17 +241,44 @@ import timeit
 # print("".join([d.get(c, c) for c in s]))
 
 
-def is_palindrome_semisr(str):
-    str = str.replace(" ", "").lower()
-    return str == str[::-1]
+# def is_palindrome_semisr(str):
+#     str = str.replace(" ", "").lower()
+#     return str == str[::-1]
+#
+#
+# print(is_palindrome_semisr('ABC d cb a' * 1000))
+#
+# def is_palindrome_sr(text: str) -> bool:
+#     text = text.replace(" ", "").lower()
+#     return text == text[::-1]
+#
+# print(is_palindrome_sr('ABC d cb a' * 1000))
+
+# s = "name"
+# print(s.zfill(6))
 
 
-print(is_palindrome_semisr('ABC d cb a' * 1000))
+# def isPalindrome(s):
+#
+#     def toChars(s):
+#         s = s.lower()
+#         ans = ""
+#         for c in s:
+#             if c in "abcdefghijklmnñopqrstuvwxyz":
+#                 ans = ans + c
+#             return ans
+#
+#     def isPal(s):
+#         if len(s) <= 1:
+#             return True
+#         else:
+#             return s[0] == s[-1] and isPal(s[1:-1])
+#     return isPal(toChars(s))
+#
+#
+# print(isPalindrome("ABC d cb a"*1000))
 
-def is_palindrome_sr(text: str) -> bool:
-    text = text.replace(" ", "").lower()
-    return text == text[::-1]
 
-print(is_palindrome_sr('ABC d cb a' * 1000))
-
+d = {2: 30, 1: 10, 3: 30, 1: 40}
+print(d)
 
