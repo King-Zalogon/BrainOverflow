@@ -278,7 +278,12 @@ import timeit
 #
 # print(isPalindrome("ABC d cb a"*1000))
 
+# d = {2: 30, 1: 10, 3: 30, 1: 40}
+# print(d)
 
-d = {2: 30, 1: 10, 3: 30, 1: 40}
-print(d)
+# new_list = [1, "John", 4]
+# print(new_list[3:])
+
+s = "stalwart"
+print(s.partition("a"))
 
