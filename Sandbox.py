@@ -284,6 +284,12 @@ import timeit
 # new_list = [1, "John", 4]
 # print(new_list[3:])
 
-s = "stalwart"
-print(s.partition("a"))
+# s = "stalwart"
+# print(s.partition("a"))
 
+
+lst = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+temp = [num for sublist in lst for num in sublist]
+print(temp)
+
+print(12 - (2 < 12) * 7)
