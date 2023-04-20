@@ -288,8 +288,16 @@ import timeit
 # print(s.partition("a"))
 
 
-lst = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
-temp = [num for sublist in lst for num in sublist]
-print(temp)
+# lst = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+# temp = [num for sublist in lst for num in sublist]
+# print(temp)
+#
+# print(12 - (2 < 12) * 7)
 
-print(12 - (2 < 12) * 7)
+# a = 00
+# print(list(str(a)))
+
+import math
+
+print(math.trunc(3.1))
+
