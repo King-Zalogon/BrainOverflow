@@ -154,7 +154,7 @@
 # print(tpl.count(3) + tpl.index(3))
 
 # import numpy as np
-# print(np.arange(2,8))
+# print(np.range(2,8))
 
 # li = [10, 15, 20, 25]
 # li[1:3] = [30]
@@ -186,7 +186,7 @@
 # print ("py" * 2 * 3)
 
 
-import timeit
+# import timeit
 
 
 # def is_palindrome_jr(string):
