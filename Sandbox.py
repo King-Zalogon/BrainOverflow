@@ -297,7 +297,10 @@ import timeit
 # a = 00
 # print(list(str(a)))
 
-import math
+# import math
+#
+# print(math.trunc(3.1))
 
-print(math.trunc(3.1))
+some_var = "1"
+print(bool(some_var))
 
