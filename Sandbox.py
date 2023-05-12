@@ -301,6 +301,53 @@
 #
 # print(math.trunc(3.1))
 
-some_var = "1"
-print(bool(some_var))
+# some_var = "1"
+# print(bool(some_var))
+#
+# target_num = int(input("Ingresa un número del 1 al 50: "))
+# my_list = []
+#
+# for i in range(1, target_num+1):
+#     my_list.append(i)
+#
+# print(f'Mi lista va del {my_list[0]} al {my_list[-1]}.')
+# result = 0
+# for i in my_list:
+#     result += i
+#
+# print(f'Y sumar cada uno de los elementos de mi lista me da {result} como resultado')
+
+#Se requiere de un algoritmo que permita el ingreso de 10 notas numericas de alumnos
+# y muestre un array con las calificaciones concpetuales
+#10: LS logros sobresalientes
+#9-8: LSat logros satisfactorios
+#7-6: LB logros basicos
+#<5 LNO logros no obtenidos
+
+mis_notas = []
+
+calificaciones = ["LNO logros no obtenidos", "LB logros basicos", "LSat logros satisfactorios", "LS logros sobresalientes"]
+
+for i in range(10):
+
+    nota = int(input("Ingrese un numero entre 1 y 10: "))
+
+    while nota < 1 or nota > 10:
+        print("El numero ingresado debe estar entre 1 y 10.")
+        nota = int(input("Ingrese un numero entre 1 y 10: "))
+
+    mis_notas.append(nota)
+
+print(mis_notas)
+
+mis_calificaciones = []
+
+for i in mis_notas:
+    num = (i // 2)-1
+    if num > 0:
+        mis_calificaciones.append(calificaciones[num-1])
+    else:
+        mis_calificaciones.append(calificaciones[0])
+
+print(mis_calificaciones)
 
