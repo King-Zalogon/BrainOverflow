@@ -324,30 +324,33 @@
 #7-6: LB logros basicos
 #<5 LNO logros no obtenidos
 
-mis_notas = []
+# mis_notas = []
+#
+# calificaciones = ["LNO logros no obtenidos", "LB logros basicos", "LSat logros satisfactorios", "LS logros sobresalientes"]
+#
+# for i in range(10):
+#
+#     nota = int(input("Ingrese un numero entre 1 y 10: "))
+#
+#     while nota < 1 or nota > 10:
+#         print("El numero ingresado debe estar entre 1 y 10.")
+#         nota = int(input("Ingrese un numero entre 1 y 10: "))
+#
+#     mis_notas.append(nota)
+#
+# print(mis_notas)
+#
+# mis_calificaciones = []
+#
+# for i in mis_notas:
+#     num = (i // 2)-1
+#     if num > 0:
+#         mis_calificaciones.append(calificaciones[num-1])
+#     else:
+#         mis_calificaciones.append(calificaciones[0])
+#
+# print(mis_calificaciones)
 
-calificaciones = ["LNO logros no obtenidos", "LB logros basicos", "LSat logros satisfactorios", "LS logros sobresalientes"]
 
-for i in range(10):
 
-    nota = int(input("Ingrese un numero entre 1 y 10: "))
-
-    while nota < 1 or nota > 10:
-        print("El numero ingresado debe estar entre 1 y 10.")
-        nota = int(input("Ingrese un numero entre 1 y 10: "))
-
-    mis_notas.append(nota)
-
-print(mis_notas)
-
-mis_calificaciones = []
-
-for i in mis_notas:
-    num = (i // 2)-1
-    if num > 0:
-        mis_calificaciones.append(calificaciones[num-1])
-    else:
-        mis_calificaciones.append(calificaciones[0])
-
-print(mis_calificaciones)
 
