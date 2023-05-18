@@ -351,6 +351,35 @@
 #
 # print(mis_calificaciones)
 
+import asyncio
 
+async def main():
+    await asyncio.sleep(0.5)
+    print("It's gonna be ...")
+    await asyncio.sleep(0.8)
+    print('... wait for it..')
+    await asyncio.sleep(1.2)
+    print('... Legendary!!!')
+    await asyncio.sleep(1)
+
+asyncio.run(main())
+
+def draw_random_circles(canvas):
+    # TODO your code here
+    pass
+
+CANVAS_WIDTH = 300
+CANVAS_HEIGHT = 300
+CIRCLE_SIZE = 20
+N_CIRCLES = 20
+
+def main():
+    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+    # TODO your code here
+
+
+def random_color():
+    colors = ['blue', 'purple', 'salmon', 'lightblue', 'cyan', 'forestgreen']
+    return random.choice(colors)
 
 
