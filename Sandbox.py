@@ -353,33 +353,101 @@
 
 import asyncio
 
-async def main():
+async def wait_4_it():
     await asyncio.sleep(0.5)
-    print("It's gonna be ...")
+    print("It's gonna be LEGEN...")
     await asyncio.sleep(0.8)
     print('... wait for it..')
     await asyncio.sleep(1.2)
-    print('... Legendary!!!')
+    print('... DARY!!!')
     await asyncio.sleep(1)
 
-asyncio.run(main())
+asyncio.run(wait_4_it())
 
-def draw_random_circles(canvas):
-    # TODO your code here
-    pass
+# def draw_random_circles(canvas):
+#     # TODO your code here
+#     pass
+#
+# from tkinter import Canvas
+#
+# CANVAS_WIDTH = 300
+# CANVAS_HEIGHT = 300
+# CIRCLE_SIZE = 20
+# N_CIRCLES = 20
+#
+# def main():
+#     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+#     # TODO your code here
+#
+#
+#
+# def random_color():
+#     colors = ['blue', 'purple', 'salmon', 'lightblue', 'cyan', 'forestgreen']
+#     return random.choice(colors)
+#
+# canvas.create_rectangle(0, 0, 40, 40, random_color())
 
-CANVAS_WIDTH = 300
-CANVAS_HEIGHT = 300
-CIRCLE_SIZE = 20
-N_CIRCLES = 20
+# CONSTANT_LIST = [1, 2, 3]
+# CONSTANT_LIST.append(4)
+# print(CONSTANT_LIST)
 
-def main():
-    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-    # TODO your code here
-
-
-def random_color():
-    colors = ['blue', 'purple', 'salmon', 'lightblue', 'cyan', 'forestgreen']
-    return random.choice(colors)
-
+# from graphics import Canvas
+# import random
+#
+# CANVAS_WIDTH = 300
+# CANVAS_HEIGHT = 300
+# CIRCLE_SIZE = 20
+# N_CIRCLES = 20
+#
+#
+# def main():
+#     print('Random Circles')
+#     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+#
+#     for i in range(N_CIRCLES):
+#         e = random.randint(1, 10)
+#         if e % 2 == 0:
+#             draw_random_circles(canvas)
+#         else:
+#             draw_random_rectangle(canvas)
+#
+#
+# def random_color():
+#     """
+#     This is a function to use to get a random color for each circle. We have
+#     defined this for you and there is no need to edit code in this function,
+#     but feel free to read it over if you are interested.
+#     """
+#     colors = ['blue', 'purple', 'salmon', 'lightblue', 'cyan', 'forestgreen', 'red', 'green', 'yellow', 'orange']
+#     return random.choice(colors)
+#
+#
+# def draw_random_circles(canvas):
+#     # left_x = random.randint(0, CANVAS_WIDTH - CIRCLE_SIZE)
+#     # top_y = random.randint(0, CANVAS_HEIGHT - CIRCLE_SIZE)
+#     # right_x = left_x + CIRCLE_SIZE
+#     # bottom_y = top_y + CIRCLE_SIZE
+#     random_size = random.randint(15, 40)
+#     left_x = random.randint(0, CANVAS_WIDTH - random_size)
+#     top_y = random.randint(0, CANVAS_HEIGHT - random_size)
+#     right_x = left_x + random_size
+#     bottom_y = top_y + random_size
+#     random.randint(15, 40)
+#
+#     canvas.create_oval(left_x, top_y, right_x, bottom_y, random_color())
+#
+#
+# def draw_random_rectangle(canvas):
+#     random_size = random.randint(15, 40)
+#     left_x = random.randint(0, CANVAS_WIDTH - random_size)
+#     top_y = random.randint(0, CANVAS_HEIGHT - random_size)
+#     right_x = left_x + random_size
+#     bottom_y = top_y + random_size
+#     random.randint(15, 40)
+#
+#     canvas.create_rectangle(left_x, top_y, right_x, bottom_y, random_color())
+#
+#
+# if __name__ == '__main__':
+#     main()
 
