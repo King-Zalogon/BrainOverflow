@@ -451,3 +451,84 @@ asyncio.run(wait_4_it())
 # if __name__ == '__main__':
 #     main()
 
+# def is_valid(s):
+#     stack = []
+#     brackets = {'(': ')', '[': ']', '{': '}'}
+#
+#     for char in s:
+#         if char in brackets.keys():
+#             stack.append(char)
+#         elif char in brackets.values():
+#             if len(stack) == 0 or brackets[stack.pop()] != char:
+#                 return False
+#
+#     return len(stack) == 0
+
+
+# def is_valid(s):
+#     stack = []
+#     brackets_map = {')': '(', ']': '[', '}': '{'}
+#
+#     for char in s:
+#         if char in ['(', '[', '{']:
+#             stack.append(char)
+#         elif char in [')', ']', '}']:
+#             if not stack or brackets_map[char] != stack.pop():
+#                 return False
+#
+#     return len(stack) == 0
+#
+# # Test cases
+# print(is_valid("()"))  # Output: True
+# print(is_valid("()[]{}"))  # Output: True
+# print(is_valid("(]"))  # Output: False
+# print(is_valid("([)]"))  # Output: False
+# print(is_valid("{[]}"))  # Output: True
+# print(is_valid("()[]{}"))
+
+# def solution(k: list[int]) -> int:
+#     max_diff = float('-inf')
+#
+#     for i in range(len(k)):
+#         for j in range(i + 1, len(k)):
+#             for m in range(len(k)):
+#                 for n in range(m + 1, len(k)):
+#                     diff = (k[i] * k[j]) - (k[m] * k[n])
+#                     max_diff = max(max_diff, diff)
+#
+#     return max_diff
+#
+#
+# k = [3,2,1,4,5,6]
+#
+# print(solution(k))
+
+
+from typing import List
+
+def solution(s: str, k: List[int]) -> str:
+    sorted_string = [''] * len(s)  # Create a list to store the characters in their sorted positions
+
+    for i in range(len(s)):
+        sorted_string[k[i]] = s[i]  # Move the character to its sorted position
+
+    return ''.join(sorted_string)  # Convert the list back to a string
+
+
+s = "talentcloudturing"
+k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
+
+
+# R E A D M E
+# DO NOT CHANGE the code below, we use it to grade your submission. If changed your submission will be failed automatically.
+# if __name__ == '__main__':
+#     s = input()
+#     line = input()
+#     k = line.strip().split()
+#     k = [int(x) for x in k]
+#     output = solution(s, k)
+#     print(output)
+
+output = solution(s, k)
+print(output)
+
