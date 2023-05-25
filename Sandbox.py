@@ -529,6 +529,48 @@ k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 #     output = solution(s, k)
 #     print(output)
 
-output = solution(s, k)
-print(output)
+# output = solution(s, k)
+# print(output)
+#
+# import random
+#
+#
+# def main():
+#     print("Khansole Academy")
+#
+#     # TODO: your code here
+#     def my_ints():
+#         a = random.randint(10, 100)
+#         b = random.randint(10, 100)
+#         return (a, b)
+#
+#     my_sum = my_ints()
+#     correct = my_sum[0] + my_sum[1]
+#
+#     print(f'What is {my_sum[0]} + {my_sum[1]}?')
+#
+#     answer = int(input('Your answer: '))
+#
+#     if answer == correct:
+#         print('Correct!')
+#     else:
+#         print('Incorrect.')
+#         print(f'The expected answer is {correct}')
 
+
+def presentar(nombre, edad, team_invierno):
+    saludo = 'Hola, mi nombre es ' + nombre
+    dias_vida = edad * 365
+
+    if team_invierno:
+        team = 'frío!'
+    else:
+        team = 'calor!'
+    clima = 'Amo cagarme de ' + team
+
+    print(saludo, '\nLlevo con vida más de', dias_vida, ' días\nY', clima)
+
+
+presentar("Gonzalo", 40, False)
+
+presentar(team_invierno=True, nombre='Loana', edad=24)
