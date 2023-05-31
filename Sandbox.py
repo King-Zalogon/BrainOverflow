@@ -557,20 +557,25 @@ k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 #         print('Incorrect.')
 #         print(f'The expected answer is {correct}')
 
+#
+# def presentar(nombre, edad, team_invierno):
+#     saludo = 'Hola, mi nombre es ' + nombre
+#     dias_vida = edad * 365
+#
+#     if team_invierno:
+#         team = 'frío!'
+#     else:
+#         team = 'calor!'
+#     clima = 'Amo cagarme de ' + team
+#
+#     print(saludo, '\nLlevo con vida más de', dias_vida, ' días\nY', clima)
+#
+#
+# presentar("Gonzalo", 40, False)
+#
+# presentar(team_invierno=True, nombre='Loana', edad=24)
 
-def presentar(nombre, edad, team_invierno):
-    saludo = 'Hola, mi nombre es ' + nombre
-    dias_vida = edad * 365
 
-    if team_invierno:
-        team = 'frío!'
-    else:
-        team = 'calor!'
-    clima = 'Amo cagarme de ' + team
+for i in range(20, 0, -1):
+    print(i)
 
-    print(saludo, '\nLlevo con vida más de', dias_vida, ' días\nY', clima)
-
-
-presentar("Gonzalo", 40, False)
-
-presentar(team_invierno=True, nombre='Loana', edad=24)
