@@ -576,6 +576,11 @@ k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 # presentar(team_invierno=True, nombre='Loana', edad=24)
 
 
-for i in range(20, 0, -1):
-    print(i)
+# for i in range(20, 0, -1):
+#     print(i)
 
+try:
+    with open('test_file.txt', 'w') as f:
+        f.write('Create a new text file!')
+except FileNotFoundError:
+    print("The directory does not exist")
