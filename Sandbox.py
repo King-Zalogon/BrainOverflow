@@ -579,8 +579,184 @@ k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 # for i in range(20, 0, -1):
 #     print(i)
 
-try:
-    with open('test_file.txt', 'w') as f:
-        f.write('Create a new text file!')
-except FileNotFoundError:
-    print("The directory does not exist")
+# try:
+#     with open('test_file.txt', 'w') as f:
+#         f.write('Create a new text file!')
+# except FileNotFoundError:
+#     print("The directory does not exist")
+
+
+# numbers = [1, 2, 3, 4]
+
+
+# def double_numbers(list):
+#     for i in range(len(list)):
+#         list[i] = list[i] * 2
+#
+#
+# double_numbers(numbers)
+#
+# print(numbers)
+
+# def add_many_numbers(numbers):
+#     total = 0
+#     for number in numbers:
+#         total += number
+#     return total
+#
+#
+# numbers = [1, 2, 3, 4, 5]
+# sum_of_numbers = add_many_numbers(numbers)
+# print(sum_of_numbers)
+
+# my_dict = {
+#     1 : 'Tom',
+#     2 : 32,
+#     3 : True
+# }
+#
+# for item in my_dict.items():
+#     print(type(item[1]))
+
+# """
+# This program counts the number of times each number appears in a list of numbers.
+# """
+#
+#
+# def get_user_numbers():
+#     """
+#     Create an empty list.
+#     Ask the user to input numbers and store them in a list.
+#     Once they enter a blank line, break out of the loop and return the list.
+#     """
+#     user_numbers = []
+#     while True:
+#         user_input = input("Enter a number: ")
+#
+#         # If the user enters a blank line, break out of the loop and stop asking for input
+#         if user_input == "":
+#             break
+#
+#         # convert the user input to an integer and add it to the list
+#         num = int(user_input)
+#         user_numbers.append(num)
+#
+#     return user_numbers
+#
+#
+# def count_nums(num_lst):
+#     """
+#     Create an empty dictionary.
+#     Loop over the list of numbers.
+#     If the number is not in the dictionary, add it as a key with a value of 1.
+#     If the number is in the dictionary, increment its value by 1.
+#     """
+#     num_dict = {}
+#     for num in num_lst:
+#         if num not in num_dict:
+#             num_dict[num] = 1
+#         else:
+#             num_dict[num] += 1
+#
+#     return num_dict
+#
+#
+# def print_counts(num_dict):
+#     """
+#     Loop over the dictionary and print out each key and its value.
+#     """
+#     for num in num_dict:
+#         print(str(num) + " appears " + str(num_dict[num]) + " times.")
+#
+#
+# def main():
+#     """
+#     Ask the user to input numbers and store them in a list. Once they enter a blank line,
+#     print out the number of times each number appeared in the list.
+#     """
+#     user_numbers = get_user_numbers()
+#     num_dict = count_nums(user_numbers)
+#     print_counts(num_dict)
+
+
+# """
+# Program to show an example of using dictionaries to maintain
+# a phonebook.
+# """
+#
+#
+# def read_phone_numbers():
+#     """
+#     Ask the user for names/numbers to story in a phonebook (dictionary).
+#     Returns the phonebook.
+#     """
+#     phonebook = {}                   # Create empty phonebook
+#
+#     while True:
+#         name = input("Name: ")
+#         if name == "":
+#             break
+#         number = input("Number: ")
+#         phonebook[name] = number
+#
+#     return phonebook
+#
+#
+# def print_phonebook(phonebook):
+#     """
+#     Prints out all the names/numbers in the phonebook.
+#     """
+#     for name in phonebook:
+#         print(str(name) + " -> " + str(phonebook[name]))
+#
+#
+# def lookup_numbers(phonebook):
+#     """
+#     Allow the user to lookup phone numbers in the phonebook
+#     by looking up the number associated with a name.
+#     """
+#     while True:
+#         name = input("Enter name to lookup: ")
+#         if name == "":
+#             break
+#         if name not in phonebook:
+#             print(name + " is not in the phonebook")
+#         else:
+#             print(phonebook[name])
+#
+#
+# def main():
+#     phonebook = read_phone_numbers()
+#     print_phonebook(phonebook)
+#     lookup_numbers(phonebook)
+
+import random
+
+# Name of the file to read in!
+FILE_NAME = 'cswords.txt'
+
+def get_words_from_file():
+    """
+    This function has been implemented for you. It opens a file,
+    and stores all of the lines into a list of strings.
+    It returns a list of all lines in the file.
+    """
+    f = open(FILE_NAME, mode='r')
+    lines = []
+    for line in f:
+        # removes whitespace characters (\n) from the start and end of the line
+        line = line.strip()
+        # if the line was only whitespace characters, skip it
+        if line != "":
+            lines.append(line)
+    return lines
+
+
+def main():
+    # your code here :)
+    words_list = get_words_from_file()
+    while True:
+        print(random.choice(words_list))
+        if input() != '':
+            break
+
