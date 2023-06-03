@@ -317,16 +317,19 @@
 #
 # print(f'Y sumar cada uno de los elementos de mi lista me da {result} como resultado')
 
-#Se requiere de un algoritmo que permita el ingreso de 10 notas numericas de alumnos
+# Se requiere de un algoritmo que permita el ingreso de 10 notas numericas de alumnos
 # y muestre un array con las calificaciones concpetuales
-#10: LS logros sobresalientes
-#9-8: LSat logros satisfactorios
-#7-6: LB logros basicos
-#<5 LNO logros no obtenidos
+# 10: LS logros sobresalientes
+# 9-8: LSat logros satisfactorios
+# 7-6: LB logros basicos
+# <5 LNO logros no obtenidos
 
 # mis_notas = []
 #
-# calificaciones = ["LNO logros no obtenidos", "LB logros basicos", "LSat logros satisfactorios", "LS logros sobresalientes"]
+# calificaciones = [
+# "LNO logros no obtenidos", "LB logros basicos",
+# "LSat logros satisfactorios", "LS logros sobresalientes"
+# ]
 #
 # for i in range(10):
 #
@@ -351,21 +354,21 @@
 #
 # print(mis_calificaciones)
 
-import asyncio
-
-async def wait_4_it():
-    await asyncio.sleep(0.5)
-    print("It's gonna be LEGEN...")
-    await asyncio.sleep(0.8)
-    print('... wait for it..')
-    await asyncio.sleep(1.2)
-    print('... DARY!!!')
-    await asyncio.sleep(1)
-
-asyncio.run(wait_4_it())
+# import asyncio
+#
+# async def wait_4_it():
+#     await asyncio.sleep(0.5)
+#     print("It's gonna be LEGEN...")
+#     await asyncio.sleep(0.8)
+#     print('... wait for it..')
+#     await asyncio.sleep(1.2)
+#     print('... DARY!!!')
+#     await asyncio.sleep(1)
+#
+# asyncio.run(wait_4_it())
 
 # def draw_random_circles(canvas):
-#     # TODO your code here
+#     # TO DO your code here
 #     pass
 #
 # from tkinter import Canvas
@@ -377,7 +380,7 @@ asyncio.run(wait_4_it())
 #
 # def main():
 #     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-#     # TODO your code here
+#     # TO DO your code here
 #
 #
 #
@@ -504,23 +507,24 @@ asyncio.run(wait_4_it())
 # print(solution(k))
 
 
-from typing import List
-
-def solution(s: str, k: List[int]) -> str:
-    sorted_string = [''] * len(s)  # Create a list to store the characters in their sorted positions
-
-    for i in range(len(s)):
-        sorted_string[k[i]] = s[i]  # Move the character to its sorted position
-
-    return ''.join(sorted_string)  # Convert the list back to a string
-
-
-s = "talentcloudturing"
-k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
+# from typing import List
+#
+# def solution(s: str, k: List[int]) -> str:
+#     sorted_string = [''] * len(s)  # Create a list to store the characters in their sorted positions
+#
+#     for i in range(len(s)):
+#         sorted_string[k[i]] = s[i]  # Move the character to its sorted position
+#
+#     return ''.join(sorted_string)  # Convert the list back to a string
+#
+#
+# s = "talentcloudturing"
+# k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 
 
 # R E A D M E
-# DO NOT CHANGE the code below, we use it to grade your submission. If changed your submission will be failed automatically.
+# DO NOT CHANGE the code below, we use it to grade your submission.
+# If changed your submission will be failed automatically.
 # if __name__ == '__main__':
 #     s = input()
 #     line = input()
@@ -538,7 +542,7 @@ k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 # def main():
 #     print("Khansole Academy")
 #
-#     # TODO: your code here
+#     # TO DO: your code here
 #     def my_ints():
 #         a = random.randint(10, 100)
 #         b = random.randint(10, 100)
@@ -730,33 +734,175 @@ k = [6,7,8,9,10,11,12,13,14,15,16,0,1,2,3,4,5]
 #     print_phonebook(phonebook)
 #     lookup_numbers(phonebook)
 
-import random
+# import random
+#
+# # Name of the file to read in!
+# FILE_NAME = 'cswords.txt'
+#
+# def get_words_from_file():
+#     """
+#     This function has been implemented for you. It opens a file,
+#     and stores all of the lines into a list of strings.
+#     It returns a list of all lines in the file.
+#     """
+#     f = open(FILE_NAME, mode='r')
+#     lines = []
+#     for line in f:
+#         # removes whitespace characters (\n) from the start and end of the line
+#         line = line.strip()
+#         # if the line was only whitespace characters, skip it
+#         if line != "":
+#             lines.append(line)
+#     return lines
+#
+#
+# def main():
+#
+#     words_list = get_words_from_file()
+#     while True:
+#         print(random.choice(words_list))
+#         if input() != '':
+#             break
 
-# Name of the file to read in!
-FILE_NAME = 'cswords.txt'
-
-def get_words_from_file():
-    """
-    This function has been implemented for you. It opens a file,
-    and stores all of the lines into a list of strings.
-    It returns a list of all lines in the file.
-    """
-    f = open(FILE_NAME, mode='r')
-    lines = []
-    for line in f:
-        # removes whitespace characters (\n) from the start and end of the line
-        line = line.strip()
-        # if the line was only whitespace characters, skip it
-        if line != "":
-            lines.append(line)
-    return lines
-
-
-def main():
-    # your code here :)
-    words_list = get_words_from_file()
-    while True:
-        print(random.choice(words_list))
-        if input() != '':
-            break
-
+# with open('test_file.txt', 'r', encoding='utf8') as f:
+#     lines = []
+#     for line in f:
+#         lines.append(line.strip())
+#
+#
+# lines = ['Readme', 'How to write text files in Python']
+# with open('readme.txt', 'a') as f:
+#     for line in lines:
+#         f.write(line)
+#         f.write('\n')
+#
+# lines = ['Readme', 'How to write text files in Python']
+# with open('readme.txt', 'a') as f:
+#     f.writelines(lines)
+#
+# more_lines = ['', 'Append text files', 'The End']
+#
+# with open('readme.txt', 'a') as f:
+#     f.write('\n'.join(more_lines))
+#
+# f.close()
+#
+#
+# def solution(queries):
+#     container = []
+#     answers = []
+#
+#     for query in queries:
+#         operation = query[0]
+#         value = query[1]
+#
+#         if operation == "ADD":
+#             container.append(value)
+#             answers.append("")
+#         elif operation == "EXISTS":
+#             count = container.count(value)
+#             if count > 0:
+#                 for i in range(0, count):
+#                     answers.append("true")
+#             else:
+#                 answers.append("false")
+#         elif operation == "REMOVE":
+#             if value in container:
+#                 container.remove(value)
+#
+#     return answers
+#
+#
+# def solution(queries):
+#     accounts = {}
+#     results = []
+#
+#     for query in queries:
+#         operation = query[0]
+#         timestamp = query[1]
+#         account_id = query[2]
+#
+#         if operation == "CREATE_ACCOUNT":
+#             if account_id not in accounts:
+#                 accounts[account_id] = [0, []]
+#                 results.append("true")
+#             else:
+#                 results.append("false")
+#
+#         elif operation == "DEPOSIT":
+#             if account_id in accounts:
+#                 amount = int(query[3])
+#                 accounts[account_id][0] += amount
+#                 results.append(str(accounts[account_id][0]))
+#             else:
+#                 results.append("")
+#
+#         elif operation == "PAY":
+#             if account_id in accounts:
+#                 amount = int(query[3])
+#                 if accounts[account_id][0] >= amount:
+#                     accounts[account_id][0] -= amount
+#                     results.append(str(accounts[account_id][0]))
+#                 else:
+#                     results.append("")
+#             else:
+#                 results.append("")
+#
+#     return results
+#
+#
+# def solution(queries):
+#     accounts = {}
+#     transaction_values = []
+#     results = []
+#
+#     for query in queries:
+#         operation = query[0]
+#         timestamp = query[1]
+#         account_id = query[2]
+#
+#         if operation == "CREATE_ACCOUNT":
+#             if account_id not in accounts:
+#                 accounts[account_id] = [0, []]
+#                 transaction_values.append((0, account_id))
+#                 results.append("true")
+#             else:
+#                 results.append("false")
+#
+#         elif operation == "DEPOSIT":
+#             if account_id in accounts:
+#                 amount = int(query[3])
+#                 accounts[account_id][0] += amount
+#                 results.append(str(accounts[account_id][0]))
+#                 # Update the total transaction value for the account
+#                 index = transaction_values.index((accounts[account_id][0] - amount, account_id))
+#                 transaction_values[index] = (accounts[account_id][0], account_id)
+#             else:
+#                 results.append("")
+#
+#         elif operation == "PAY":
+#             if account_id in accounts:
+#                 amount = int(query[3])
+#                 if accounts[account_id][0] >= amount:
+#                     accounts[account_id][0] -= amount
+#                     results.append(str(accounts[account_id][0]))
+#                     # Update the total transaction value for the account
+#                     index = transaction_values.index((accounts[account_id][0] + amount, account_id))
+#                     transaction_values[index] = (accounts[account_id][0], account_id)
+#                 else:
+#                     results.append("")
+#             else:
+#                 results.append("")
+#
+#         elif operation == "TOP_ACTIVITY":
+#             n = int(query[2])
+#             top_accounts = []
+#             for i in range(min(n, len(transaction_values))):
+#                 account = transaction_values[i]
+#                 top_accounts.append(f"{account[1]}({account[0]})")
+#             results.append(", ".join(top_accounts))
+#
+#     return results
+import  datetime
+print(type(datetime.date(2012, 1, 1) - datetime.date(2011, 1, 1)))
+print(datetime.date(2023, 1, 1) - datetime.date(2000, 1, 1))

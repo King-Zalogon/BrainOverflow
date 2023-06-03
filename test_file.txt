@@ -1,1 +1,4 @@
 Create a new text file!
+Some line
+Other line
+Starting a new line
