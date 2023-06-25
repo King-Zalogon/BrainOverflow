@@ -903,6 +903,44 @@
 #             results.append(", ".join(top_accounts))
 #
 #     return results
-import  datetime
-print(type(datetime.date(2012, 1, 1) - datetime.date(2011, 1, 1)))
-print(datetime.date(2023, 1, 1) - datetime.date(2000, 1, 1))
+# import  datetime
+# print(type(datetime.date(2012, 1, 1) - datetime.date(2011, 1, 1)))
+# print(datetime.date(2023, 1, 1) - datetime.date(2000, 1, 1))
+
+# def test(i,j):
+#   if i == 0:
+#     return j
+#   else:
+#     return test(i-1,i+j)
+#
+# print(test(4,7))
+
+# print({x for x in range(100) if x%3 == 0})
+
+# number_list = [x for x in range(100) if x%3 if x%5]
+# print(number_list)
+
+# print '{0:-2%}'.format(1.0 / 3)
+
+# i = 0
+# while i < 3:
+#   print(i)
+#   i += 1
+#   print(i+1)
+
+# def print_alpha_nums(abc_list, num_list):
+#     for char in abc_list:
+#         for num in num_list:
+#             print(char, num)
+#     return
+#
+# print_alpha_nums(['a', 'b', 'c'], [1, 2, 3])
+
+
+# if bool(1):
+#     print("Foo")
+
+# a, b, c, d = {"foo": 4}, {"que": {"bar": 6}, "make": 6}, "all", "5"
+# print(c)
+
+
