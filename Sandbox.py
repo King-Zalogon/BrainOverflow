@@ -943,4 +943,18 @@
 # a, b, c, d = {"foo": 4}, {"que": {"bar": 6}, "make": 6}, "all", "5"
 # print(c)
 
+nota1 = float(input("Ingrese nota del primer parcial: "))
+nota2 = float(input("Ingrese nota del segundo parcial: "))
+recu = input("Rendiste recuperatorio de alguno de los parciales? Y/N: ").lower()
 
+promedio = (nota1 + nota2) / 2
+tema_final = 0
+temas = ["una pregunta fácil para simular que te tomó final", "un examen principalmente apuntado al parcial que no hayas aprobado"]
+
+if nota1 < 7 or nota2 < 7 or recu == 'y':
+    tema_final = 1
+    if promedio > 7:
+        promedio = 6
+
+resultado = f"Como te sacaste {nota1} y {nota2} el día del final tenés que ir y te va a tomar {temas[tema_final]} porque tu promedio da {promedio}"
+print(resultado)
