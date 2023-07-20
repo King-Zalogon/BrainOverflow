@@ -48,7 +48,7 @@ class Inventory:
         self.cursor = self.connection.cursor()
 
     def read_item(self, code):
-        self.cursor.execute('SELECT from items WHERE code = ?', (code,))
+        self.cursor.execute('SELECT * FROM items WHERE code = ?', (code,))
         row = self.cursor.fetchone()
         if row:
             code, description, amount, price = row
@@ -98,35 +98,35 @@ class Cart:
 
     def __init__(self) -> None:
         self.connection = sqlite3.connect('inventory.db')
-        self.cursor = self.connection.execute()
-        self.items = []
+        self.cursor = self.connection.cursor()
+        self.cart_items = []
     
-    def add_2_cart(self, code, amount, intenvory):
-        item = inventory.read_item(code)
+    def add_2_cart(self, code, amount, inventory):
+        add_item = inventory.read_item(code)
         
-        if not item:
+        if not add_item:
             print('Item not found')
             return False
         
-        if item.amount < amount:
+        if add_item.amount < amount:
             print('Not enough stock')
             return False
         
-        for item in self.items:
+        for item in self.cart_items:
             if item.code == code:
                 item.amount += amount
                 self.cursor.execute('UPDATE items SET amount = amount - ? WHERE code = ?', (amount, code))
                 self.connection.commit()
                 return True
             
-        new_item = Item(code, item.description, amount, item.price)
-        self.items.append(new_item)
-        self.cursor.execute('UPDATE items SET amount = amount - ? WHERE codigo = ?', (amount, code))
+        new_item = Item(code, add_item.description, amount, add_item.price)
+        self.cart_items.append(new_item)
+        self.cursor.execute('UPDATE items SET amount = amount - ? WHERE code = ?', (amount, code))
         self.connection.commit()
         return True
 
     def remove_item(self, code, amount):
-        for item in self.items:
+        for item in self.cart_items:
             if item.code == code:
                 if amount > item.amount:
                     print('Trying to remove more than currently on cart')
@@ -134,7 +134,7 @@ class Cart:
                 
                 item.amount -= amount
                 if item.amount == 0:
-                    self.items.delete_item(item)
+                    self.cart_items.remove(item)
                 self.cursor.execute('UPDATE items SET amount = amount + ? WHERE code = ?', (amount, code))
                 self.connection.commit()
                 return True
@@ -143,10 +143,53 @@ class Cart:
     
     def read_cart(self):
         print('-'*30)
-        for item in self.items:
+        for item in self.cart_items:
             print(f'Code:{item.code}')
             print(f'Name:{item.description}')
             print(f'Amount:{item.amount}')
             print(f'Cost:{item.price}')
             print('-'*30)
-    
+
+
+# Tests ==========================================
+
+inv = Inventory()
+my_cart = Cart()
+
+# inv.create_item(1, 'First item', 10, 1.50)
+# inv.create_item(2, 'Second item', 20, 1.99)
+# inv.create_item(3, 'Third item', 30, 0.50)
+# inv.create_item(4, 'Fourth item', 40, 2.50)
+# inv.create_item(66, 'Order 66', 40, 2.50)
+
+# inv.create_item(2, 'Not Second item', 1, 99)
+# inv.update_item(2, 'Second item', 25, 2)
+
+# inv.update_item(1, 'First item', 10, 1.50)
+# inv.update_item(2, 'Second item', 20, 1.99)
+# inv.update_item(3, 'Third item', 30, 0.50)
+# inv.update_item(4, 'Fourth item', 40, 2.50)
+
+# inv.read_items()
+# inv.delete_item(66)
+
+# inv.read_items()
+
+# my_cart.add_2_cart(4, 23, inv)
+# my_cart.add_2_cart(1, 1, inv)
+# my_cart.add_2_cart(3, 3, inv)
+
+# my_cart.read_cart()
+# inv.read_items()
+
+# my_cart.add_2_cart(4, 3, inv)
+# my_cart.remove_item(4, 44)
+
+# my_cart.read_cart()
+# inv.read_items()
+
+# my_cart.remove_item(1, 1)
+
+# my_cart.read_cart()
+# inv.read_items()
+
