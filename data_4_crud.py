@@ -73,5 +73,26 @@ class Inventory:
             self.cursor.execute('UPDATE items SET description = ?, amount = ?, price = ? WHERE code = ?', (new_description, new_amount, new_price, code))
             self.connection.commit()
     
+    def read_items(self):
+        print('-'*30)
+        self.cursor.execute('SELECT * FROM items')
+        rows = self.cursor.fetchall()
+        for row in rows:
+            code, description, amount, price = row
+            print(f'Code: {code}')
+            print(f'Name: {description}')
+            print(f'Stock: {amount}')
+            print(f'Price: {price}')
+            print('-'*30)
+    
+    def delete_item(self, code):
+        self.cursor.execute('DELETE FROM items WHERE code = ?', (code,))
+        if self.cursor.rowcount > 0:
+            print('Item deleted')
+            self.connection.commit()
+        else:
+            print('Item not found')
+
+
 
 
