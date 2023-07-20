@@ -94,5 +94,59 @@ class Inventory:
             print('Item not found')
 
 
+class Cart:
 
+    def __init__(self) -> None:
+        self.connection = sqlite3.connect('inventory.db')
+        self.cursor = self.connection.execute()
+        self.items = []
+    
+    def add_2_cart(self, code, amount, intenvory):
+        item = inventory.read_item(code)
+        
+        if not item:
+            print('Item not found')
+            return False
+        
+        if item.amount < amount:
+            print('Not enough stock')
+            return False
+        
+        for item in self.items:
+            if item.code == code:
+                item.amount += amount
+                self.cursor.execute('UPDATE items SET amount = amount - ? WHERE code = ?', (amount, code))
+                self.connection.commit()
+                return True
+            
+        new_item = Item(code, item.description, amount, item.price)
+        self.items.append(new_item)
+        self.cursor.execute('UPDATE items SET amount = amount - ? WHERE codigo = ?', (amount, code))
+        self.connection.commit()
+        return True
 
+    def remove_item(self, code, amount):
+        for item in self.items:
+            if item.code == code:
+                if amount > item.amount:
+                    print('Trying to remove more than currently on cart')
+                    return False
+                
+                item.amount -= amount
+                if item.amount == 0:
+                    self.items.delete_item(item)
+                self.cursor.execute('UPDATE items SET amount = amount + ? WHERE code = ?', (amount, code))
+                self.connection.commit()
+                return True
+        print('Item not in cart')
+        return False
+    
+    def read_cart(self):
+        print('-'*30)
+        for item in self.items:
+            print(f'Code:{item.code}')
+            print(f'Name:{item.description}')
+            print(f'Amount:{item.amount}')
+            print(f'Cost:{item.price}')
+            print('-'*30)
+    
