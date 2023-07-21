@@ -55,6 +55,7 @@ class Item:
         self.price = new_price
 
 
+
 class Inventory:
     def __init__(self):
         self.connection = get_db_connection()
@@ -66,18 +67,17 @@ class Inventory:
         if row:
             code, description, amount, price = row
             return Item(code, description, amount, price)
-        return False
+        return None
 
     def create_item(self, code, description, amount, price):
         existing_item = self.read_item(code)
         if existing_item:
-            print('Item already created with that code')
-            return False
+            return jsonify({'message': 'Item already created with that code.'}), 400
         
         new_item = Item(code, description, amount, price)
         self.cursor.execute('INSERT INTO items VALUES(?, ?, ?, ?)', (code, description, amount, price))
         self.connection.commit()
-        return True
+        return jsonify({'message': 'Item added to inventory.'}), 200
     
     def update_item(self, code, new_description, new_amount, new_price):
         item = self.read_item(code)
@@ -85,26 +85,27 @@ class Inventory:
             item.update(new_description, new_amount, new_price)
             self.cursor.execute('UPDATE items SET description = ?, amount = ?, price = ? WHERE code = ?', (new_description, new_amount, new_price, code))
             self.connection.commit()
+            return jsonify({'message': 'Inventory item updated'}), 200
+        return jsonify({'message':'Item not found in inventory'}), 404
     
     def read_items(self):
-        print('-'*30)
         self.cursor.execute('SELECT * FROM items')
         rows = self.cursor.fetchall()
+        items = []
         for row in rows:
             code, description, amount, price = row
-            print(f'Code: {code}')
-            print(f'Name: {description}')
-            print(f'Stock: {amount}')
-            print(f'Price: {price}')
-            print('-'*30)
+            item = {'code': code, 'description': description, 'amount': amount, 'price': price}
+            items.append(item)
+        return jsonify(items), 200
     
     def delete_item(self, code):
         self.cursor.execute('DELETE FROM items WHERE code = ?', (code,))
         if self.cursor.rowcount > 0:
-            print('Item deleted')
             self.connection.commit()
+            return jsonify({'message': 'Item deleted from inventory'}), 200
         else:
-            print('Item not found')
+            return jsonify({'message': 'Item not found in inventory'}), 404
+
 
 
 class Cart:
@@ -115,53 +116,48 @@ class Cart:
         self.cart_items = []
     
     def add_2_cart(self, code, amount, inventory):
-        add_item = inventory.read_item(code)
+        item_2_add = inventory.read_item(code)
         
-        if not add_item:
-            print('Item not found')
-            return False
+        if item_2_add is None:
+            return jsonify({'message': 'Item not in cart'}), 404
         
-        if add_item.amount < amount:
-            print('Not enough stock')
-            return False
+        if item_2_add.amount < amount:
+            return jsonify({'message': 'Not enough amount in cart'}), 400
         
         for item in self.cart_items:
             if item.code == code:
                 item.amount += amount
                 self.cursor.execute('UPDATE items SET amount = amount - ? WHERE code = ?', (amount, code))
                 self.connection.commit()
-                return True
+                return jsonify({'message': 'Item added to cart'}), 200
             
-        new_item = Item(code, add_item.description, amount, add_item.price)
+        new_item = Item(code, item_2_add.description, amount, item_2_add.price)
         self.cart_items.append(new_item)
         self.cursor.execute('UPDATE items SET amount = amount - ? WHERE code = ?', (amount, code))
         self.connection.commit()
-        return True
+        return jsonify({'message': 'Item added to cart'}), 200
 
     def remove_item(self, code, amount):
         for item in self.cart_items:
             if item.code == code:
                 if amount > item.amount:
-                    print('Trying to remove more than currently on cart')
-                    return False
+                    return jsonify({'message': 'Not enough amount in cart'}), 400
                 
                 item.amount -= amount
                 if item.amount == 0:
                     self.cart_items.remove(item)
                 self.cursor.execute('UPDATE items SET amount = amount + ? WHERE code = ?', (amount, code))
                 self.connection.commit()
-                return True
-        print('Item not in cart')
-        return False
+                return jsonify({'message': 'Item removed from cart'}), 200
+        return jsonify({'message': 'Item not in cart'}), 404
     
     def read_cart(self):
-        print('-'*30)
+        cart_items = []
         for item in self.cart_items:
-            print(f'Code:{item.code}')
-            print(f'Name:{item.description}')
-            print(f'Amount:{item.amount}')
-            print(f'Cost:{item.price}')
-            print('-'*30)
+            item = {'code': item.code, 'description': item.description, 'amount': item.amount, 'price': item.price}
+            cart_items.append(item)
+        return jsonify(cart_items), 200
+
 
 
 # ============ FLASK API CONFIG & ROUTE ============ #
@@ -189,9 +185,11 @@ def get_item(code):
 def index():
     return "Inventory's API"
 
+
 @web_app.route('/items', methods=['GET'])
 def get_items():
     return inv.read_items()
+
 
 @web_app.route('/items', methods=['POST'])
 def post_item():
@@ -200,4 +198,31 @@ def post_item():
     amount = request.json.get('amount')
     price = request.json.get('price')
     return inv.create_item(code, description, amount, price)
+
+
+@web_app.route('/items/<int:code>', methods=['PUT'])
+def put_item(code):
+    new_description = request.json.get('description')
+    new_amount = request.json.get('amount')
+    new_price = request.json.get('price')
+    return inv.update_item(code, new_description, new_amount, new_price)
+
+
+@web_app.route('/items/<int:code>', methods=['DELETE'])
+def delete_item(code):
+    return inv.delete_item(code)
+
+@web_app.route('/cart', methods=['POST'])
+def post_2_cart():
+    code = request.json.get('code')
+    amount = request.json.get('amount')
+    inventory = Inventory()
+    return cart.add_2_cart(code, amount, inventory)
+
+@web_app.route('/cart', methods=['DELETE'])
+def delete_from_cart()
+    code = request.json.get('code')
+    amount = request.json.get('amount')
+    inventory = Inventory()
+    return cart.remove_item(code, amount, inventory)
 
