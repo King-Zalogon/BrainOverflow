@@ -184,3 +184,20 @@ def get_item(code):
         }), 200
     return jsonify({'message': 'Item not found.'}), 404
 
+
+@web_app.route('/')
+def index():
+    return "Inventory's API"
+
+@web_app.route('/items', methods=['GET'])
+def get_items():
+    return inv.read_items()
+
+@web_app.route('/items', methods=['POST'])
+def post_item():
+    code = request.json.get('code') # TODO may it was .get_json() Test this
+    description = request.json.get('description')
+    amount = request.json.get('amount')
+    price = request.json.get('price')
+    return inv.create_item(code, description, amount, price)
+
