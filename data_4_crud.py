@@ -22,7 +22,7 @@ def create_table():
     cursor.close()
     conn.close()
 
-def creat_database():
+def create_database():
     conn = sqlite3.connect(DATABASE)
     conn.close()
     create_table()
