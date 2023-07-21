@@ -163,6 +163,7 @@ class Cart:
 # ============ FLASK API CONFIG & ROUTE ============ #
 
 web_app = Flask(__name__) # creates a new instance of this class, which becomes my web application
+CORS(web_app)
 
 cart = Cart()
 inv = Inventory()
@@ -225,4 +226,14 @@ def delete_from_cart()
     amount = request.json.get('amount')
     inventory = Inventory()
     return cart.remove_item(code, amount, inventory)
+
+@web_app.rout('/cart', methods=['GET'])
+def get_cart():
+    return cart.read_cart()
+
+
+# ============ RUN ============ #
+
+if __name__ == '__main__':
+    web_app.run()
 
