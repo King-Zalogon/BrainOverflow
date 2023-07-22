@@ -236,5 +236,5 @@ def get_cart():
 # ============ RUN ============ #
 
 if __name__ == '__main__':
-    web_app.run()
+    web_app.run(port=5501)
 
