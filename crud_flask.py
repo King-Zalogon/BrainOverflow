@@ -1,5 +1,6 @@
 import sqlite3
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 # ============ CONSTANTS ============ #
 
@@ -137,7 +138,7 @@ class Cart:
         self.connection.commit()
         return jsonify({'message': 'Item added to cart'}), 200
 
-    def remove_item(self, code, amount):
+    def remove_item(self, code, amount, inventory):
         for item in self.cart_items:
             if item.code == code:
                 if amount > item.amount:
@@ -221,13 +222,13 @@ def post_2_cart():
     return cart.add_2_cart(code, amount, inventory)
 
 @web_app.route('/cart', methods=['DELETE'])
-def delete_from_cart()
+def delete_from_cart():
     code = request.json.get('code')
     amount = request.json.get('amount')
     inventory = Inventory()
     return cart.remove_item(code, amount, inventory)
 
-@web_app.rout('/cart', methods=['GET'])
+@web_app.route('/cart', methods=['GET'])
 def get_cart():
     return cart.read_cart()
 
