@@ -190,6 +190,6 @@ my_cart = Cart()
 
 # my_cart.remove_item(1, 1)
 
-# my_cart.read_cart()
-# inv.read_items()
+my_cart.read_cart()
+inv.read_items()
 

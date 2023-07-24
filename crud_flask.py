@@ -10,7 +10,7 @@ DATABASE = 'inventory.db'
 # ============ DB CONNECTION ============ #
 
 def get_db_connection():
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(DATABASE, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -32,13 +32,13 @@ def create_table():
 
 
 def create_database():
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(DATABASE, check_same_thread=False)
     conn.close()
     create_table()
 
 
 create_database()  # Creates table if not already exists
-
+# create_table()
 
 # ============ CLASSES ============ #
 
@@ -106,6 +106,105 @@ class Inventory:
             return jsonify({'message': 'Item deleted from inventory'}), 200
         else:
             return jsonify({'message': 'Item not found in inventory'}), 404
+
+# class Inventory:
+#     def __init__(self):
+#         # self.connection = get_db_connection()
+#         # self.cursor = self.connection.cursor()
+#         pass
+
+#     def get_connection(self):
+#         # Create a new connection and return it
+#         return sqlite3.connect(DATABASE)
+
+#     def read_item(self, code):
+#         conn = self.get_connection()
+#         cursor = conn.cursor()
+#         cursor.execute('SELECT * FROM items WHERE code = ?', (code,))
+#         row = cursor.fetchone()
+#         if row:
+#             code, description, amount, price = row
+#             item = Item(code, description, amount, price)
+#         else:
+#             item = None
+
+#         cursor.close()
+#         conn.close()
+#         return item
+
+#     def create_item(self, code, description, amount, price):
+#         conn = self.get_connection()
+#         cursor = conn.cursor()
+
+#         existing_item = self.read_item(code)
+#         if existing_item:
+#             cursor.close()
+#             conn.close()
+#             return jsonify({'message': 'Item already created with that code.'}), 400
+
+#         new_item = Item(code, description, amount, price)
+#         cursor.execute('INSERT INTO items VALUES(?, ?, ?, ?)', (code, description, amount, price))
+#         conn.commit()
+
+#         cursor.close()
+#         conn.close()
+#         return jsonify({'message': 'Item added to inventory.'}), 200
+    
+    
+#     def update_item(self, code, new_description, new_amount, new_price):
+#         item = self.read_item(code)
+#         if item:
+#             item.update(new_description, new_amount, new_price)
+
+#             conn = self.get_connection()
+#             cursor = conn.cursor()
+
+#             cursor.execute(
+#                 'UPDATE items SET description = ?, amount = ?, price = ? WHERE code = ?',
+#                 (new_description, new_amount, new_price, code)
+#             )
+
+#             conn.commit()
+#             cursor.close()
+#             conn.close()
+
+#             return jsonify({'message': 'Inventory item updated'}), 200
+
+#         return jsonify({'message': 'Item not found in inventory'}), 404
+
+#     def read_items(self):
+#         conn = self.get_connection()
+#         cursor = conn.cursor()
+
+#         cursor.execute('SELECT * FROM items')
+#         rows = cursor.fetchall()
+#         items = []
+#         for row in rows:
+#             code, description, amount, price = row
+#             item = {'code': code, 'description': description, 'amount': amount, 'price': price}
+#             items.append(item)
+
+#         cursor.close()
+#         conn.close()
+
+#         return jsonify(items), 200
+
+#     def delete_item(self, code):
+#         conn = self.get_connection()
+#         cursor = conn.cursor()
+
+#         cursor.execute('DELETE FROM items WHERE code = ?', (code,))
+#         if cursor.rowcount > 0:
+#             conn.commit()
+#             cursor.close()
+#             conn.close()
+
+#             return jsonify({'message': 'Item deleted from inventory'}), 200
+#         else:
+#             cursor.close()
+#             conn.close()
+
+#             return jsonify({'message': 'Item not found in inventory'}), 404
 
 
 
