@@ -1,3 +1,5 @@
+'''This py is my attempt to further understando the use of Flask to connect front and back in a functional CRUD. It has 2 versions of the Inventory class. One that uses the same connection and cursor shared among its methods. And another one, currently commented, that creates an individual connection and cursos for each method. I'm keeping both to test and understand which is the correct one to use for my projects.'''
+
 import sqlite3
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -10,7 +12,10 @@ DATABASE = 'inventory.db'
 # ============ DB CONNECTION ============ #
 
 def get_db_connection():
-    conn = sqlite3.connect(DATABASE, check_same_thread=False)
+    conn = sqlite3.connect(DATABASE, check_same_thread=False) 
+    """
+    Delete check_same_thread=False if you want to use the version of Inventory with individual connection n cursor for each method
+    """
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -36,7 +41,9 @@ def create_database():
     conn.close()
     create_table()
 
-
+'''
+If you want to use individual connections version of Inventory then comment out the create_database and comment it the create_table
+'''
 create_database()  # Creates table if not already exists
 # create_table()
 
@@ -56,7 +63,7 @@ class Item:
         self.price = new_price
 
 
-
+# Shared connection/cursor Inventory
 class Inventory:
     def __init__(self):
         self.connection = get_db_connection()
@@ -107,6 +114,9 @@ class Inventory:
         else:
             return jsonify({'message': 'Item not found in inventory'}), 404
 
+
+
+# #Individual connection/cursor Inventory
 # class Inventory:
 #     def __init__(self):
 #         # self.connection = get_db_connection()
