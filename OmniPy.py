@@ -90,3 +90,15 @@ my_data = f'Another string in the {file_name}'
 use_file(file_name)
 
 
+def list_of_primes(limit):
+    # using the sieve of Eratosthenes method
+    primes = []
+    is_prime = [True] * (limit + 1)
+
+    for num in range(2, limit + 1):
+        if is_prime[num]:
+            primes.append(num)
+            for multiple in range(num * num, limit + 1, num):
+                is_prime[multiple] = False
+
+    return primes
